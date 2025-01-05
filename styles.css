@@ -1,13 +1,133 @@
-.parent {
-	background-color: ghostwhite;
-	display: grid;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
 }
 
 div {
 	padding: .5rem;
 }
 
-div div {
-	background-color: cornflowerblue;
-	border: 1px solid darkblue;
+.book-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem 2rem 10px 20px;
+}
+
+.book-form-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-form-item label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.book-form-item input,
+.book-form-item select,
+.btn {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+.btn-shared-style {
+    border: none;
+    outline: none;
+
+    font-size: 0.85rem;
+    font-weight: 650;
+    white-space: nowrap;
+
+    border-radius: 0.25rem;
+    
+    padding-inline: 1.2rem;
+    padding-block: 0.44rem;
+
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-shared-style:hover {
+    transform: scale(1.05); 
+}
+
+.btn-shared-style:active {
+    transform: scale(1); 
+}
+
+.btn-read-status {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-read-status:hover {
+    background-color: #218838;
+}
+
+.btn-delete-book {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete-book:hover {
+    background-color: #c82333;
+}
+
+.book-list-container {
+    min-height: 360px;
+    padding: 1rem 2rem 10px 20px;
+}
+
+.book-list-container table.book-list-table {
+    width: 100%;
+    text-align: left;
+}
+
+.book-list-table {
+    border-collapse: collapse;
+    border-spacing: 50px 0;
+}
+  
+.book-list-table tr {
+    border-bottom: 1pt solid black;
+}
+
+.book-list-table th,
+.book-list-table td {
+    padding-block: 0.8rem;
+}
+
+
+@media (min-width: 768px) {
+    .book-form {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (min-width: 1200px) {
+    .book-form {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 }

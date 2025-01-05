@@ -7,54 +7,57 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-// Event listener to add a new book
-document.querySelector('form').addEventListener('submit', (e) => {
+document.querySelector('.add-book-btn .btn').addEventListener('click', (e) => {
     e.preventDefault();
 
-    // Create a new book
-    const title = document.querySelector('#title').value;
-    const author = document.querySelector('#author').value;
-    const pages = document.querySelector('#pages').value;
-    const status = document.querySelector('#read').value;
+    const title = document.querySelector('#input-title').value.trim();
+    const author = document.querySelector('#input-author').value.trim();
+    const pages = document.querySelector('#input-pages').value.trim();
+    const read = document.querySelector('#read').value;
 
-    const book = new Book(title, author, pages, status);
+    if (!title || !author || !pages || !read) {
+        alert('Please fill out all fields.');
+        return;
+    }
 
-    // Add the new book to the library
+    const book = new Book(title, author, pages, read);
     addBookToLibrary(book);
+    resetForm();
 });
 
 function addBookToLibrary(book) {
     library.push(book);
     displayBooks();
+}
 
-    // Reset the form
-    document.getElementById('book-form').reset();
+function resetForm() {
+    document.querySelector('#input-title').value = '';
+    document.querySelector('#input-author').value = '';
+    document.querySelector('#input-pages').value = '';
+    document.querySelector('#read').value = '';
 }
 
 function displayBooks() {
-    const bookList = document.querySelector('#book-list');
-
-    // Clear the book list
+    const bookList = document.querySelector('.all-books-list');
     bookList.innerHTML = '';
 
-    // Loop through the library and create a card for each book
     library.forEach((book, index) => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-
-        card.innerHTML = `
-            <h3><strong>Title:</strong>${book.title}</h3>
-            <p><strong>Author:</strong> ${book.author}</p>
-            <p><strong>Pages:</strong> ${book.pages}</p>
-            <p><strong>Read:</strong> ${book.read}</p>
-            <button class="delete-btn" data-index="${index}">Delete</button>
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.pages}</td>
+            <td>
+                <button class="btn-read-status btn-shared-style">${book.read}</button>
+            </td>
+            <td>
+                <button class="btn-delete-book btn-shared-style" data-index="${index}">Delete</button>
+            </td>
         `;
-
-        bookList.appendChild(card);
+        bookList.appendChild(row);
     });
 
-    // Add delete functionality to buttons
-    document.querySelectorAll('.delete-btn').forEach((button) => {
+    document.querySelectorAll('.btn-delete-book').forEach((button) => {
         button.addEventListener('click', (e) => {
             const index = e.target.getAttribute('data-index');
             library.splice(index, 1);
@@ -63,5 +66,4 @@ function displayBooks() {
     });
 }
 
-// Initial display
 displayBooks();
