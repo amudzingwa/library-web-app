@@ -1,0 +1,13 @@
+.parent {
+	background-color: ghostwhite;
+	display: grid;
+}
+
+div {
+	padding: .5rem;
+}
+
+div div {
+	background-color: cornflowerblue;
+	border: 1px solid darkblue;
+}

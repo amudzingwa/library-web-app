@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library (The Odin Project)</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class = "header">
+        <h1>Welcome to your personal library app!</h1>
+        <p class="top-paragraph">Organize your book collection, keep track of what you've read, and discover your next favorite read.</p>
+        <p>Manage your book list with ease and explore new titles effortlessly!</p>
+    </div>
+
+        <div class = "book-form">
+
+            <div class="book-form-item">
+                <label for="input-title">Title</label>
+                <input type="text" id="input-title" placeholder="Book title" required>
+            </div>
+    
+            <div class="book-form-item">
+                <label for="input-author">Author</label>
+                <input type="text" id="input-author" placeholder="Author" required>
+            </div>
+    
+            <div class="book-form-item">
+                <label for="input-pages">Pages</label>
+                <input type="number" id="input-pages" placeholder="Pages" required>
+            </div>
+    
+            <div class="book-form-item">
+                <label for="read">Read</label>
+                <select id="read" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="yes">Read</option>
+                    <option value="no">Not Read</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class= "add-book-btn btn-shared-style">
+            <button type="submit" class="btn">Add Book</button>
+        </div>
+
+            <div class="book-list-container">
+                <table class="book-list-table">
+                    <!-- Table header -->
+                    <thead>
+                        <tr>
+                            <th>Book</th>
+                            <th>Author</th>
+                            <th>Pages</th>
+                            <th>Status</th>
+                            </tr>
+                    </thead>
+        
+                    <!-- Table body -->
+                    <tbody class="all-books-list">
+                        <tr>
+                            <td>Animal Farm</td>
+                            <td>George Orwell</td>
+                            <td>92</td>
+                            <td>
+                                <button class="btn-read-status btn-shared-style">Read</button>
+                            </td>
+                            <td>
+                                <button class="btn-delete-book btn-shared-style">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+<div class = "footer">
+        <p>This is a project for The Odin Project in which I have to make a library using Object Constructors and LocalStorage.</p>
+<p>You can also view the Github repository of this project.</p>
+    </div>
+
+
+    <script src="./script.js" defer></script>
+
+        
+</body>
+</html>
